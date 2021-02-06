@@ -5,11 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/client.js"></script>
   </head>
   <body>
     <h1>Server Side Calculator</h1>
+      <input type="number"/>
+      <input type="button" value="+" data-name="plusBtn"/>
+      <input type="button" value="-" data-name="minusBtn"/>
+      <input type="button" value="*" data-name="multiplicationBtn"/>
+      <input type="button" value="/" data-name="divisionBtn"/>
+      <input type="number"/>
+      <input type="button" value="=" data-name="equalBtn">
+      <input type="button" value="C" data-name="clearBtn">
+      <div id="calculation"></div>
+      <div id="history"></div>
+    </h2>
   </body>
 </html>
