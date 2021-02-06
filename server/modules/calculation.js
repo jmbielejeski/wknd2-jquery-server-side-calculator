@@ -1,7 +1,19 @@
-const { builtinModules } = require("module");
+const { builtinModules } = require('module');
 
-function calculate(inputOne, inputTwo) {
-  console.log('performing calculation on ', inputOne, inputTwo);
+function calculate(inputOne, operator, inputTwo) {
+  console.log('performing calculation on ', inputOne, operator, inputTwo);
+
+  let answer = '';
+
+  if (operater === 'add') {
+    answer = inputOne + inputTwo;
+  } else if (operater === 'subtract') {
+    answer = inputOne - inputTwo;
+  } else if (operater === 'multiply') {
+    answer = inputOne * inputTwo;
+  } else if (operater === 'divide') {
+    answer = inputOne / inputTwo;
+  }
 }
 
-modules exports = calculate;
+module.exports = calculate;

@@ -11,14 +11,14 @@
   </head>
   <body>
     <h1>Server Side Calculator</h1>
-      <input type="number"/>
-      <input type="button" value="+" data-name="plusBtn"/>
-      <input type="button" value="-" data-name="minusBtn"/>
-      <input type="button" value="*" data-name="multiplicationBtn"/>
-      <input type="button" value="/" data-name="divisionBtn"/>
-      <input type="number"/>
-      <input type="button" value="=" data-name="equalBtn">
-      <input type="button" value="C" data-name="clearBtn">
+      <input type="number" id="firstInput"/>
+      <button data-operation="add" class="operationButton">+</button>
+      <button data-operation="subtract" class="operationButton">-</button>
+      <button data-operation="multiply" class="operationButton">*</button>
+      <button data-operation="divide" class="operationButton">/</button>
+      <input type="number" id="secondInput"/>
+      <input id="equalBtn" type="button" value="=">
+      <input type="button" value="C">
       <div id="calculation"></div>
       <div id="history"></div>
     </h2>
