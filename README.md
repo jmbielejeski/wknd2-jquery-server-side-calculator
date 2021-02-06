@@ -1,9 +1,28 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# Server Side Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+duration: weekend
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Build a user interface where a user can input two values and select the type of mathematical operation. They can submit this info and the calculations will run.
+
+## Usage
+
+Use this to perform simple mathematical calculations
+
+## Built with
+
+- Javascript
+- HTML
+- CSS
+- Node
+- Express
+- jQuery
+
+## Acknowledgement
+
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. (Thank your people)
+
+## Support
+
+If you have suggestions or issues, please email me at jmbielejeski@gmail.com
