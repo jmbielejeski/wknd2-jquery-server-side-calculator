@@ -67,4 +67,20 @@ function calculate() {
     operator: operation,
   };
   console.log(newCalculation);
+
+  $.ajax({
+    url: '/history',
+    method: 'POST',
+    data: {
+      calculation_to_run: newCalculation,
+    },
+  })
+    .then(function (response) {
+      console.log('it worked', response);
+    })
+    .catch(function (error) {
+      console.log('something went wrong', error);
+    });
+
+  // displayCalculation();
 }
