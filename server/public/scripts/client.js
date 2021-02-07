@@ -7,8 +7,6 @@ $(document).ready(onReady);
 function onReady() {
   console.log('so ready');
 
-  getHistory();
-
   // run the calculate function on click of equalBtn
   $(document).on('click', '#equalBtn', calculate);
 
@@ -23,21 +21,10 @@ function getHistory() {
     .then(function (calculationHistory) {
       // got a response
       console.log('got a response', calculationHistory);
+      render(calculationHistory);
 
-      //take array of history
-      // loop through them
-
-      for (let calculation of calculationHistory) {
-        //append to DOM
-        $('#history').append(`
-        <li>
-        ${calculation}
-        </li>
-      `);
-      }
+      // catch to alert if something goes wrong
     })
-
-    // catch to alert if something goes wrong
     .catch(function () {
       alert('something went wrong');
     });
@@ -81,6 +68,45 @@ function calculate() {
     .catch(function (error) {
       console.log('something went wrong', error);
     });
+  getHistory();
+  render();
+}
 
-  // displayCalculation();
+function render(historyData) {
+  console.log('historyData is ', historyData);
+
+  let firstObject = '';
+
+  //loop over array of objects to find correct objects
+  for (let i = 0; i < historyData.length; i++) {
+    firstObject = historyData[i];
+  }
+
+  console.log('firstObject is', firstObject);
+
+  // history data is coming back as an array of objects.
+  // need to get the first object in the array.
+
+  console.log('firstObject at firstInput is ', firstObject.firstInput);
+  $('#history').append(`
+    <ul>
+      <li>First Input is 
+        ${firstObject.firstInput}
+      </li>
+      <li>operator is 
+        ${firstObject.operator}
+      </li>
+      <li>Second Input is 
+        ${firstObject.secondInput}
+      </li>
+      <li>Answer is 
+        ${firstObject.answer}
+      </li>
+    </ul>
+  `);
+  // append to answer
+  $('#calculation').empty();
+  $('#calculation').append(`
+    The answer is: ${firstObject.answer}
+  `);
 }

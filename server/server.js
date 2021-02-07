@@ -1,5 +1,5 @@
 const express = require('express');
-// const calculate = require('./modules/calculation');
+const storage = require('./modules/history');
 
 // Create our app
 const app = express();
@@ -15,15 +15,12 @@ app.listen(PORT, () => {
   console.log('Server is running on port', PORT);
 });
 
-// history array of objects
-let calculationHistory = [];
 // get history to send to client.
 app.get('/history', (req, res) => {
   console.log('in calculation History GET');
-  res.send(calculationHistory);
+  console.log('storage is', storage.stored());
+  res.send(storage.stored());
 });
-
-let completeCalculation = '';
 
 app.post('/history', (req, res) => {
   console.log('in operation POST');
@@ -38,13 +35,14 @@ app.post('/history', (req, res) => {
   let currentCalculation = req.body.calculation_to_run;
   console.log(currentCalculation);
 
-  let answer = '';
-
   function calculate(inputOne, operator, inputTwo) {
     console.log('performing calculation on ', inputOne, operator, inputTwo);
 
     inputOne = Number(inputOne);
+    console.log('input one is', inputOne);
     inputTwo = Number(inputTwo);
+    console.log('input two is', inputTwo);
+    let answer = '';
 
     if (operator === 'add') {
       answer = inputOne + inputTwo;
@@ -68,8 +66,8 @@ app.post('/history', (req, res) => {
 
   currentCalculation.answer = completeCalculation;
 
-  calculationHistory.push(currentCalculation);
-  console.log(calculationHistory);
+  storage.addToHistory(currentCalculation);
+  console.log(currentCalculation);
 
   res.sendStatus(200);
 });
