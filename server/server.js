@@ -44,13 +44,13 @@ app.post('/history', (req, res) => {
     console.log('input two is', inputTwo);
     let answer = '';
 
-    if (operator === 'add') {
+    if (operator === '+') {
       answer = inputOne + inputTwo;
-    } else if (operator === 'subtract') {
+    } else if (operator === '-') {
       answer = inputOne - inputTwo;
-    } else if (operator === 'multiply') {
+    } else if (operator === '*') {
       answer = inputOne * inputTwo;
-    } else if (operator === 'divide') {
+    } else if (operator === '/') {
       answer = inputOne / inputTwo;
     }
     return answer;

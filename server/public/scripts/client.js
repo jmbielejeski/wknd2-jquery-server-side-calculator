@@ -90,17 +90,8 @@ function render(historyData) {
   console.log('firstObject at firstInput is ', firstObject.firstInput);
   $('#history').append(`
     <ul>
-      <li>First Input is 
-        ${firstObject.firstInput}
-      </li>
-      <li>operator is 
-        ${firstObject.operator}
-      </li>
-      <li>Second Input is 
-        ${firstObject.secondInput}
-      </li>
-      <li>Answer is 
-        ${firstObject.answer}
+      <li>
+        ${firstObject.firstInput} ${firstObject.operator} ${firstObject.secondInput} = ${firstObject.answer}
       </li>
     </ul>
   `);
