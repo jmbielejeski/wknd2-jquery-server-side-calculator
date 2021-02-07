@@ -11,6 +11,10 @@ function onReady() {
   $(document).on('click', '#equalBtn', calculate);
 
   $(document).on('click', '.operationButton', setOperation);
+
+  $(document).on('click', '#clearInput', clearInputs);
+
+  getHistory();
 }
 
 function getHistory() {
@@ -76,12 +80,22 @@ function calculate() {
 function render(historyData) {
   console.log('historyData is ', historyData);
 
+  $('#history').empty();
+
   // this is the same as the answer
   let firstObject = '';
 
   //loop over array of objects to find correct objects
   for (let i = 0; i < historyData.length; i++) {
     firstObject = historyData[i];
+    // console.log('firstObject at firstInput is ', firstObject.firstInput);
+    $('#history').append(`
+  <ul>
+    <li>
+      ${firstObject.firstInput} ${firstObject.operator} ${firstObject.secondInput} = ${firstObject.answer}
+    </li>
+  </ul>
+`);
   }
 
   // console.log('firstObject is', firstObject);
@@ -89,20 +103,10 @@ function render(historyData) {
   // history data is coming back as an array of objects.
   // need to get the first object in the array.
 
-  // console.log('firstObject at firstInput is ', firstObject.firstInput);
-  $('#history').append(`
-    <ul>
-      <li>
-        ${firstObject.firstInput} ${firstObject.operator} ${
-    firstObject.secondInput
-  } = ${firstObject.answer.toFixed(2)}
-      </li>
-    </ul>
-  `);
   // append to answer
   $('#calculation').empty();
   $('#calculation').append(`
-    The answer is: ${firstObject.answer.toFixed(2)}
+    The answer is: ${firstObject.answer}
   `);
   clearInputs();
 }
@@ -112,3 +116,5 @@ function clearInputs() {
   $('#firstInput').val('');
   $('#secondInput').val('');
 }
+
+function renderHistory() {}

@@ -15,13 +15,6 @@ app.listen(PORT, () => {
   console.log('Server is running on port', PORT);
 });
 
-// get history to send to client.
-app.get('/history', (req, res) => {
-  console.log('in calculation History GET');
-  console.log('storage is', storage.stored());
-  res.send(storage.stored());
-});
-
 app.post('/history', (req, res) => {
   console.log('in operation POST');
   // check if received data is undefined
@@ -67,7 +60,14 @@ app.post('/history', (req, res) => {
   currentCalculation.answer = completeCalculation;
 
   storage.addToHistory(currentCalculation);
-  console.log('currentCalculation is:', currentCalculation);
+  console.log(storage.stored);
 
   res.sendStatus(200);
+});
+
+// get history to send to client.
+app.get('/history', (req, res) => {
+  console.log('in calculation History GET');
+  console.log('storage is', storage.stored());
+  res.send(storage.stored());
 });
