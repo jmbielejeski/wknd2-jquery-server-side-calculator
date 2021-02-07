@@ -91,13 +91,15 @@ function render(historyData) {
   $('#history').append(`
     <ul>
       <li>
-        ${firstObject.firstInput} ${firstObject.operator} ${firstObject.secondInput} = ${firstObject.answer}
+        ${firstObject.firstInput} ${firstObject.operator} ${
+    firstObject.secondInput
+  } = ${firstObject.answer.toFixed(2)}
       </li>
     </ul>
   `);
   // append to answer
   $('#calculation').empty();
   $('#calculation').append(`
-    The answer is: ${firstObject.answer}
+    The answer is: ${firstObject.answer.toFixed(2)}
   `);
 }

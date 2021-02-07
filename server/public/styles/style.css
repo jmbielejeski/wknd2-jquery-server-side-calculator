@@ -1,0 +1,12 @@
+body {
+  background-color: aliceblue;
+}
+
+#calculation {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+#history {
+  margin-top: 15px;
+}
