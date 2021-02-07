@@ -67,7 +67,7 @@ app.post('/history', (req, res) => {
   currentCalculation.answer = completeCalculation;
 
   storage.addToHistory(currentCalculation);
-  console.log(currentCalculation);
+  console.log('currentCalculation is:', currentCalculation);
 
   res.sendStatus(200);
 });

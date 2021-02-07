@@ -21,6 +21,7 @@ function getHistory() {
     .then(function (calculationHistory) {
       // got a response
       console.log('got a response', calculationHistory);
+
       render(calculationHistory);
 
       // catch to alert if something goes wrong
@@ -30,8 +31,9 @@ function getHistory() {
     });
 }
 
+//sets operation to empty string
 let operation = '';
-
+// pulls in what the operation is based on what was clicked
 function setOperation(event) {
   event.preventDefault();
   operation = $(this).data('operation');
@@ -69,12 +71,12 @@ function calculate() {
       console.log('something went wrong', error);
     });
   getHistory();
-  render();
 }
 
 function render(historyData) {
   console.log('historyData is ', historyData);
 
+  // this is the same as the answer
   let firstObject = '';
 
   //loop over array of objects to find correct objects
@@ -82,12 +84,12 @@ function render(historyData) {
     firstObject = historyData[i];
   }
 
-  console.log('firstObject is', firstObject);
+  // console.log('firstObject is', firstObject);
 
   // history data is coming back as an array of objects.
   // need to get the first object in the array.
 
-  console.log('firstObject at firstInput is ', firstObject.firstInput);
+  // console.log('firstObject at firstInput is ', firstObject.firstInput);
   $('#history').append(`
     <ul>
       <li>
@@ -102,4 +104,11 @@ function render(historyData) {
   $('#calculation').append(`
     The answer is: ${firstObject.answer.toFixed(2)}
   `);
+  clearInputs();
+}
+
+function clearInputs() {
+  // clear inputs
+  $('#firstInput').val('');
+  $('#secondInput').val('');
 }
